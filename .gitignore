@@ -14,5 +14,3 @@ gen
 # Project exclude paths
 /build/classes/java/main/
 /build/classes/java/test/
-# Project exclude paths
-/build/
