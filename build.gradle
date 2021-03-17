@@ -1,0 +1,64 @@
+import org.gradle.api.tasks.testing.Test
+
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'org.testng', name: 'testng', version: '7.3.0'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-7'
+    testImplementation group: 'org.hamcrest', name: 'java-hamcrest', version: '2.0.0.0'
+    implementation group: 'com.beust', name: 'jcommander', version: '1.48'
+    implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.15'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.6.1'
+    testImplementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.1.5'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.1.0.Final'
+
+}
+
+task testGroups(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-groups.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+
+    if (project.hasProperty('verifyUI')) {
+        systemProperty 'verifyUI', "${verifyUI}"
+    }
+}
+
+
+task testContacts(type: Test) {
+    useTestNG {
+        suites 'src/test/resources/testng-contacts.xml'
+    }
+    if (project.hasProperty('browser')) {
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')) {
+        systemProperty 'target', "${target}"
+    }
+
+    if (project.hasProperty('verifyUI')) {
+        systemProperty 'verifyUI', "${verifyUI}"
+    }
+}
+
+test {
+    useTestNG()
+}
+
+
