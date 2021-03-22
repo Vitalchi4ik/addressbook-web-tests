@@ -2,6 +2,7 @@ import org.gradle.api.tasks.testing.Test
 
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.3'
 }
 
 group 'org.example'
@@ -9,6 +10,7 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 dependencies {
@@ -22,7 +24,16 @@ dependencies {
     implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.38'
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.1.0.Final'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.141.59'
+    implementation group: 'io.qameta.allure', name: 'allure-gradle', version: '2.3'
+}
 
+allure {
+    version = '2.2.1'
+    autoconfigure = true
+    aspectjweaver = true
+    allureJavaVersion = '2.13.8'
+    //resultsDir = file('addressbook-web-tests/build/allure-results')
+    //reportDir = file('build/allure-results')
 }
 
 task testGroups(type: Test) {
@@ -61,5 +72,4 @@ task testContacts(type: Test) {
 test {
     useTestNG()
 }
-
 

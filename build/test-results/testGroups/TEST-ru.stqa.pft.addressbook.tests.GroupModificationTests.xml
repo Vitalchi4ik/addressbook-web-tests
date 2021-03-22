@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.GroupModificationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-17T19:14:39" hostname="RORONOA_PC" time="1.343">
+<testsuite name="ru.stqa.pft.addressbook.tests.GroupModificationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-03-22T18:48:32" hostname="RORONOA_PC" time="1.296">
   <properties/>
-  <testcase name="testGroupModification" classname="ru.stqa.pft.addressbook.tests.GroupModificationTests" time="1.343"/>
-  <system-out><![CDATA[21:14:39.235 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupModification with parameters []
-21:14:39.284 [Test worker] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+  <testcase name="testGroupModification" classname="ru.stqa.pft.addressbook.tests.GroupModificationTests" time="1.296"/>
+  <system-out><![CDATA[20:48:32.374 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Start test testGroupModification with parameters []
+20:48:32.604 [Test worker] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
 Hibernate: select groupdata0_.group_id as group_id1_2_, groupdata0_.group_footer as group_fo2_2_, groupdata0_.group_header as group_he3_2_, groupdata0_.group_name as group_na4_2_ from group_list groupdata0_
 Hibernate: select groupdata0_.group_id as group_id1_2_, groupdata0_.group_footer as group_fo2_2_, groupdata0_.group_header as group_he3_2_, groupdata0_.group_name as group_na4_2_ from group_list groupdata0_
 Hibernate: select groupdata0_.group_id as group_id1_2_, groupdata0_.group_footer as group_fo2_2_, groupdata0_.group_header as group_he3_2_, groupdata0_.group_name as group_na4_2_ from group_list groupdata0_
-21:14:40.799 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupModification
+20:48:34.126 [Test worker] INFO  r.s.pft.addressbook.tests.TestBase - Stop test testGroupModification
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
