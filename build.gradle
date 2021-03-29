@@ -25,6 +25,9 @@ dependencies {
     implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.1.0.Final'
     implementation group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.141.59'
     implementation group: 'io.qameta.allure', name: 'allure-gradle', version: '2.3'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '6.0.0'
+    implementation group: 'io.cucumber', name: 'cucumber-testng', version: '6.0.0'
+
 }
 
 allure {
@@ -67,6 +70,27 @@ task testContacts(type: Test) {
     if (project.hasProperty('verifyUI')) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
+}
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', 'src/test/resources']
+        }
+    }
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
+task testCucumber {
+    finalizedBy cucumber
 }
 
 test {
